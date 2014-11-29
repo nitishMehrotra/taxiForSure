@@ -339,15 +339,22 @@ public class HomeFragment extends Fragment implements View.OnClickListener,
 
 		case R.id.taxiTimeChoiceLater:
 			Log.e(TAG, "Ride Later Selected");
-			Intent intent = new Intent(getActivity(), RideActivity.class);
-			mRideTimeSelected = TaxiRideTimeSelectionAction.LATER;
-			Bundle bundle = new Bundle();
-			bundle.putSerializable("rideTimeSelected", mRideTimeSelected);
-			bundle.putSerializable("taxiSelected", mTaxiSelected);
-			bundle.putInt("fragment", R.layout.fragment_ride_later);
-			intent.putExtras(bundle);
-			toggleVisibility();
-			startActivity(intent);
+			if (pickupCheck()) {
+				Intent intent = new Intent(getActivity(), RideActivity.class);
+				mRideTimeSelected = TaxiRideTimeSelectionAction.LATER;
+				Bundle bundle = new Bundle();
+				bundle.putSerializable("rideTimeSelected", mRideTimeSelected);
+				bundle.putSerializable("taxiSelected", mTaxiSelected);
+				bundle.putSerializable("pickup", auto_places.getText()
+						.toString());
+				bundle.putInt("fragment", R.layout.fragment_ride_later);
+				intent.putExtras(bundle);
+				toggleVisibility();
+				startActivity(intent);
+			} else {
+				Toast.makeText(getActivity(), "Please Enter Pickup Loaction",
+						Toast.LENGTH_SHORT).show();
+			}
 			break;
 		case R.id.ivMyLocation:
 			/* Animate the camera to point to the current location */
@@ -364,18 +371,29 @@ public class HomeFragment extends Fragment implements View.OnClickListener,
 			break;
 		case R.id.taxiTimeChoiceNow:
 			Log.e(TAG, "Ride Now Selected");
-			intent = new Intent(getActivity(), RideActivity.class);
-			mRideTimeSelected = TaxiRideTimeSelectionAction.NOW;
-			bundle = new Bundle();
-			bundle.putSerializable("rideTimeSelected", mRideTimeSelected);
-			bundle.putSerializable("taxiSelected", mTaxiSelected);
-			bundle.putInt("fragment", R.layout.fragment_ride_now);
-			intent.putExtras(bundle);
-			toggleVisibility();
-			startActivity(intent);
+			if (pickupCheck()) {
+				Intent intent = new Intent(getActivity(), RideActivity.class);
+				mRideTimeSelected = TaxiRideTimeSelectionAction.NOW;
+				Bundle bundle = new Bundle();
+				bundle.putSerializable("rideTimeSelected", mRideTimeSelected);
+				bundle.putSerializable("taxiSelected", mTaxiSelected);
+				bundle.putSerializable("pickup", auto_places.getText()
+						.toString());
+				bundle.putInt("fragment", R.layout.fragment_ride_now);
+				intent.putExtras(bundle);
+				toggleVisibility();
+				startActivity(intent);
+			} else {
+				Toast.makeText(getActivity(), "Please Enter Pickup Loaction",
+						Toast.LENGTH_SHORT).show();
+			}
 			break;
 
 		}
+	}
+
+	private boolean pickupCheck() {
+		return !auto_places.getText().toString().contentEquals("");
 	}
 
 	static public TaxiSelectionAction getTaxiSelected() {

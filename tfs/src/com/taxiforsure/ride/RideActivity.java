@@ -10,6 +10,7 @@ import com.taxiforsure.home.UserAction.TaxiSelectionAction;
 public class RideActivity extends FragmentActivity {
 	private TaxiSelectionAction mTaxiSelected;
 	private TaxiRideTimeSelectionAction mRideTimeSelected;
+	private String mPickupDestination;
 	private int mLayout;
 
 	@Override
@@ -21,19 +22,21 @@ public class RideActivity extends FragmentActivity {
 				.getSerializable("taxiSelected");
 		mRideTimeSelected = (TaxiRideTimeSelectionAction) bundle
 				.getSerializable("rideTimeSelected");
+		mPickupDestination = (String) bundle.getSerializable("pickup");
+				
 		mLayout = bundle.getInt("fragment");
 		if (savedInstanceState == null) {
 			if (mLayout == R.layout.fragment_ride_later) {
 				getSupportFragmentManager()
 						.beginTransaction()
 						.add(R.id.ride_activity,
-								new RideLaterFragment(mLayout, mTaxiSelected))
+								new RideLaterFragment(mLayout, mTaxiSelected, mPickupDestination ))
 						.commit();
 			} else if (mLayout == R.layout.fragment_ride_now) {
 				getSupportFragmentManager()
 						.beginTransaction()
 						.add(R.id.ride_activity,
-								new RideNowFragment(mLayout, mTaxiSelected))
+								new RideNowFragment(mLayout, mTaxiSelected, mPickupDestination))
 						.commit();
 			} else {
 

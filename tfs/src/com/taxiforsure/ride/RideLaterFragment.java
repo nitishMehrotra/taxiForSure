@@ -28,15 +28,19 @@ public class RideLaterFragment extends Fragment implements View.OnClickListener 
 	DateDialogFragment mDateDialogFragment;
 	TimeDialogFragment mTimeDialogFragment;
 
-	private TextView mTvTaxiTimeDate, mTvTaxiChoice, mTaxiRideConfirm, mTaxiRideCancel;
+	private TextView mTvTaxiTimeDate, mTvTaxiChoice, mTaxiRideConfirm,
+			mTaxiRideCancel;
 	private EditText mEtTravellerName, meEtTravellerPhoneNumber,
-			mEtTravellerEmail;
+			mEtTravellerEmail, mEtPickUpDestination;
 	private String mTaxiTime, mTaxiDate;
 	private TaxiSelectionAction mTaxiSelected;
+	private String mPickupDestination;
 
-	public RideLaterFragment(int layout, TaxiSelectionAction taxiSelected) {
+	public RideLaterFragment(int layout, TaxiSelectionAction taxiSelected,
+			String pickupDestination) {
 		this.mLayout = layout;
 		this.mTaxiSelected = taxiSelected;
+		this.mPickupDestination = pickupDestination;
 	}
 
 	public interface PickerDialogFragmentDestroyed {
@@ -117,11 +121,14 @@ public class RideLaterFragment extends Fragment implements View.OnClickListener 
 				.findViewById(R.id.etTravellerName);
 		meEtTravellerPhoneNumber = (EditText) rootView
 				.findViewById(R.id.etTravellerPhoneNumber);
-		
-		mTaxiRideConfirm = (TextView) rootView.findViewById(R.id.taxiRideConfirm);
+
+		mTaxiRideConfirm = (TextView) rootView
+				.findViewById(R.id.taxiRideConfirm);
 		mTaxiRideConfirm.setOnClickListener(this);
 		mTaxiRideCancel = (TextView) rootView.findViewById(R.id.taxiRideCancel);
 		mTaxiRideCancel.setOnClickListener(this);
+		mEtPickUpDestination = (EditText) rootView.findViewById(R.id.etPickUpDestination);
+		mEtPickUpDestination.setText(mPickupDestination);
 	}
 
 	@Override
