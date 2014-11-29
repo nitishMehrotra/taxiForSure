@@ -13,6 +13,8 @@ public class RideActivity extends FragmentActivity {
 	private String mPickupDestination;
 	private int mLayout;
 
+	Double lat, longi;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -23,20 +25,22 @@ public class RideActivity extends FragmentActivity {
 		mRideTimeSelected = (TaxiRideTimeSelectionAction) bundle
 				.getSerializable("rideTimeSelected");
 		mPickupDestination = (String) bundle.getSerializable("pickup");
-				
+		lat = (Double) bundle.getSerializable("lat");
+		longi = (Double) bundle.getSerializable("longi");
 		mLayout = bundle.getInt("fragment");
 		if (savedInstanceState == null) {
 			if (mLayout == R.layout.fragment_ride_later) {
 				getSupportFragmentManager()
 						.beginTransaction()
 						.add(R.id.ride_activity,
-								new RideLaterFragment(mLayout, mTaxiSelected, mPickupDestination ))
-						.commit();
+								new RideLaterFragment(mLayout, mTaxiSelected,
+										mPickupDestination)).commit();
 			} else if (mLayout == R.layout.fragment_ride_now) {
 				getSupportFragmentManager()
 						.beginTransaction()
 						.add(R.id.ride_activity,
-								new RideNowFragment(mLayout, mTaxiSelected, mPickupDestination))
+								new RideNowFragment(mLayout, mTaxiSelected,
+										mPickupDestination, lat, longi))
 						.commit();
 			} else {
 
