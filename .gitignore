@@ -4,4 +4,6 @@ gen/
 project.properties
 libs/
 assets/
-
+.project
+.classpath
+.settings/
