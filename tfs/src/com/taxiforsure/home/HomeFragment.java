@@ -369,6 +369,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener,
 			bundle = new Bundle();
 			bundle.putSerializable("rideTimeSelected", mRideTimeSelected);
 			bundle.putSerializable("taxiSelected", mTaxiSelected);
+			bundle.putSerializable("lat", currentLat);
+			bundle.putSerializable("longi", currentLong);
 			bundle.putInt("fragment", R.layout.fragment_ride_now);
 			intent.putExtras(bundle);
 			toggleVisibility();
