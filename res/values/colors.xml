@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="light_gray">#E3E3E3</color>
+    <color name="dark_gray">#333333</color>
+    <color name="hint_gray">#7B7B7B</color>
+    <color name="tfs_light_yellow">#FFBB33</color>
+    <color name="tfs_dark_yellow">#FF8800</color>
+    <color name="tfs_metro_red">#D62D20</color>
+    <color name="tfs_metro_green">#008744</color>
+
+</resources>

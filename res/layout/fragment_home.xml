@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF" >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <LinearLayout
+        android:id="@+id/taxiChoices"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/light_gray"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/taxiChoiceHatchback"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/textview_rounded_corner"
+            android:gravity="center"
+            android:text="@string/taxi_choice_hatchback"
+            android:textColor="@color/dark_gray" />
+
+        <TextView
+            android:id="@+id/taxiChoiceSedan"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/textview_rounded_corner"
+            android:gravity="center"
+            android:text="@string/taxi_choice_sedan"
+            android:textColor="@color/dark_gray" />
+
+        <TextView
+            android:id="@+id/taxiChoiceSUV"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/textview_rounded_corner"
+            android:gravity="center"
+            android:text="@string/taxi_choice_suv"
+            android:textColor="@color/dark_gray" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/taxiTimeChoices"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/light_gray"
+        android:orientation="horizontal"
+        android:visibility="invisible" >
+
+        <TextView
+            android:id="@+id/taxiTimeChoiceNow"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/tfs_metro_green"
+            android:gravity="center"
+            android:text="@string/taxi_time_choice_now"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/taxiTimeChoiceLater"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/tfs_metro_red"
+            android:gravity="center"
+            android:text="@string/taxi_time_choice_later"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</RelativeLayout>

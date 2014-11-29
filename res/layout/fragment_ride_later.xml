@@ -1,0 +1,150 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ride_later_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:paddingTop="@dimen/activity_margin" >
+
+    <!-- android:padding="@dimen/activity_margin" > -->
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:cardview="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/destinationCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        cardview:cardCornerRadius="10dp"
+        cardview:cardElevation="5dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp " >
+
+            <EditText
+                android:id="@+id/etPickUpDestination"
+                style="@style/TaxiForSureEditText"
+                android:hint="@string/pickup_destination" />
+
+            <EditText
+                android:id="@+id/etDropDestination"
+                style="@style/TaxiForSureEditText"
+                android:layout_below="@id/etPickUpDestination"
+                android:hint="@string/drop_destination" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:cardview="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/dateTimeCard"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/destinationCard"
+        cardview:cardCornerRadius="10dp"
+        cardview:cardElevation="5dp" >
+
+        <TextView
+            android:id="@+id/tvTaxiTimeDate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/dark_gray"
+            android:textSize="16sp" />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:cardview="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/taxiChoiceCard"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/dateTimeCard"
+        cardview:cardCornerRadius="10dp"
+        cardview:cardElevation="5dp" >
+
+        <TextView
+            android:id="@+id/tvTaxiChoice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/dark_gray"
+            android:textSize="16sp" />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:cardview="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/travellerDetailsCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/taxiChoiceCard"
+        cardview:cardCornerRadius="10dp"
+        cardview:cardElevation="5dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp " >
+
+            <EditText
+                android:id="@+id/etTravellerName"
+                style="@style/TaxiForSureEditText"
+                android:hint="@string/traveller_name"
+                android:inputType="textCapWords" />
+
+            <EditText
+                android:id="@+id/etTravellerPhoneNumber"
+                style="@style/TaxiForSureEditText"
+                android:layout_below="@id/etTravellerName"
+                android:hint="@string/traveller_number"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/etTravellerEmail"
+                style="@style/TaxiForSureEditText"
+                android:layout_below="@id/etTravellerPhoneNumber"
+                android:hint="@string/traveller_email"
+                android:inputType="textEmailAddress" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/taxiTimeChoices"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/travellerDetailsCard"
+        android:layout_marginTop="15dp"
+        android:background="@color/light_gray"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/taxiRideCancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/dark_gray"
+            android:gravity="center"
+            android:text="@string/taxi_cancel"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/taxiRideConfirm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/tfs_light_yellow"
+            android:gravity="center"
+            android:text="@string/taxi_confirm"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</RelativeLayout>
