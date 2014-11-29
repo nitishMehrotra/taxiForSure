@@ -374,7 +374,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener,
 			toggleVisibility();
 			startActivity(intent);
 			break;
-			
+
 		}
 	}
 
@@ -539,7 +539,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener,
 			InputStream stream = null;
 			try {
 				stream = entity.getContent();
-			} catch (IllegalStateException | IOException e) {
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 
