@@ -6,8 +6,6 @@
     android:background="#FFFFFF"
     android:paddingTop="@dimen/activity_margin" >
 
-    <!-- android:padding="@dimen/activity_margin" > -->
-
     <android.support.v7.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:cardview="http://schemas.android.com/apk/res-auto"

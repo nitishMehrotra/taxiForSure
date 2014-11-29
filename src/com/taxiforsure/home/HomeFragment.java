@@ -362,6 +362,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener,
 			currentLong = currentLocation.getLongitude();
 			new StringFromLocation().execute();
 			break;
+		case R.id.taxiTimeChoiceNow:
+			Log.e(TAG, "Ride Now Selected");
+			intent = new Intent(getActivity(), RideActivity.class);
+			mRideTimeSelected = TaxiRideTimeSelectionAction.NOW;
+			bundle = new Bundle();
+			bundle.putSerializable("rideTimeSelected", mRideTimeSelected);
+			bundle.putSerializable("taxiSelected", mTaxiSelected);
+			bundle.putInt("fragment", R.layout.fragment_ride_now);
+			intent.putExtras(bundle);
+			toggleVisibility();
+			startActivity(intent);
+			break;
+			
 		}
 	}
 

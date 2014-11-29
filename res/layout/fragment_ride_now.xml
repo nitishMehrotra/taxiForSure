@@ -1,0 +1,14 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ride_later_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:paddingTop="@dimen/activity_margin" >
+
+    <TextView
+        android:id="@+id/dummy"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" />
+
+</RelativeLayout>
