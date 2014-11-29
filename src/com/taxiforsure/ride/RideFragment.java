@@ -5,13 +5,6 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import com.taxiforsure.home.R;
-import com.taxiforsure.home.UserAction.TaxiSelectionAction;
-import com.taxiforsure.util.DateDialogFragment;
-import com.taxiforsure.util.DateDialogFragmentListener;
-import com.taxiforsure.util.TimeDialogFragment;
-
-import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -21,6 +14,12 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.taxiforsure.R;
+import com.taxiforsure.home.UserAction.TaxiSelectionAction;
+import com.taxiforsure.util.DateDialogFragment;
+import com.taxiforsure.util.DateDialogFragmentListener;
+import com.taxiforsure.util.TimeDialogFragment;
 
 public class RideFragment extends Fragment implements View.OnClickListener {
 	private static final String TIME_DIALOG_PICKER = "Time picker dialog fragment";

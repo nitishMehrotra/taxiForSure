@@ -1,11 +1,5 @@
 package com.taxiforsure.home;
 
-import com.taxiforsure.home.FragmentStatus.FragementVisibility;
-import com.taxiforsure.home.FragmentStatus.FragmentName;
-import com.taxiforsure.home.UserAction.TaxiRideTimeSelectionAction;
-import com.taxiforsure.home.UserAction.TaxiSelectionAction;
-
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -14,11 +8,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.taxiforsure.R;
+import com.taxiforsure.home.FragmentStatus.FragementVisibility;
+import com.taxiforsure.home.FragmentStatus.FragmentName;
+import com.taxiforsure.home.UserAction.TaxiRideTimeSelectionAction;
+import com.taxiforsure.home.UserAction.TaxiSelectionAction;
 
 public class MainActivity extends ActionBarActivity {
 	private DrawerLayout drawerLayout;

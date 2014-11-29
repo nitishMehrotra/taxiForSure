@@ -1,16 +1,11 @@
 package com.taxiforsure.ride;
 
-import com.taxiforsure.home.R;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+
+import com.example.taxiforsure.R;
 import com.taxiforsure.home.UserAction.TaxiRideTimeSelectionAction;
 import com.taxiforsure.home.UserAction.TaxiSelectionAction;
-
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 public class RideActivity extends FragmentActivity {
 	private TaxiSelectionAction mTaxiSelected;
 	private TaxiRideTimeSelectionAction mRideTimeSelected;

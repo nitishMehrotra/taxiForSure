@@ -3,10 +3,30 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF" >
 
-    <TextView
-        android:id="@+id/textView"
+    <fragment
+        android:id="@+id/map"
+        android:name="com.example.taxiforsure.TouchableMapFragment"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/belowlayout"
+        android:layout_marginTop="7dp" />
+
+    <com.example.taxiforsure.CustomAutoCompleteTextView
+        android:id="@+id/auto_places"
+        style="@style/TaxiForSureEditText"
+        android:layout_alignParentTop="true"
+        android:hint="Current Location"
+        android:imeOptions="actionDone" />
+
+    <ImageView
+        android:id="@+id/ivMyLocation"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="60dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_menu_mylocation" />
 
     <LinearLayout
         android:id="@+id/taxiChoices"
