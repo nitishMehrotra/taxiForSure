@@ -1,1 +1,7 @@
 .DS_Store
+bin/
+gen/
+project.properties
+libs/
+assets/
+
