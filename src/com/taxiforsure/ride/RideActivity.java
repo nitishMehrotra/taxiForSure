@@ -27,7 +27,7 @@ public class RideActivity extends FragmentActivity {
 				getSupportFragmentManager()
 						.beginTransaction()
 						.add(R.id.ride_activity,
-								new RideFragment(mLayout, mTaxiSelected))
+								new RideLaterFragment(mLayout, mTaxiSelected))
 						.commit();
 			} else if (mLayout == R.layout.fragment_ride_now) {
 				getSupportFragmentManager()

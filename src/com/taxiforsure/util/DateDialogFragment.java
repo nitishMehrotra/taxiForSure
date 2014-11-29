@@ -2,8 +2,8 @@ package com.taxiforsure.util;
 
 import java.util.Calendar;
 
-import com.taxiforsure.ride.RideFragment;
-import com.taxiforsure.ride.RideFragment.PickerDialogFragmentDestroyed;
+import com.taxiforsure.ride.RideLaterFragment;
+import com.taxiforsure.ride.RideLaterFragment.PickerDialogFragmentDestroyed;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;

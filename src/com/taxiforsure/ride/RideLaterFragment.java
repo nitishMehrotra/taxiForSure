@@ -21,7 +21,7 @@ import com.taxiforsure.util.DateDialogFragment;
 import com.taxiforsure.util.DateDialogFragmentListener;
 import com.taxiforsure.util.TimeDialogFragment;
 
-public class RideFragment extends Fragment implements View.OnClickListener {
+public class RideLaterFragment extends Fragment implements View.OnClickListener {
 	private static final String TIME_DIALOG_PICKER = "Time picker dialog fragment";
 	private static final String DATE_DIALOG_PICKER = "Date picker dialog fragment";
 	private int mLayout;
@@ -34,7 +34,7 @@ public class RideFragment extends Fragment implements View.OnClickListener {
 	private String mTaxiTime, mTaxiDate;
 	private TaxiSelectionAction mTaxiSelected;
 
-	public RideFragment(int layout, TaxiSelectionAction taxiSelected) {
+	public RideLaterFragment(int layout, TaxiSelectionAction taxiSelected) {
 		this.mLayout = layout;
 		this.mTaxiSelected = taxiSelected;
 	}
