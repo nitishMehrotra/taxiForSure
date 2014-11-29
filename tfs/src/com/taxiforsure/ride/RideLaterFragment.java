@@ -32,6 +32,7 @@ public class RideLaterFragment extends Fragment implements View.OnClickListener 
 			mTaxiRideCancel;
 	private EditText mEtTravellerName, meEtTravellerPhoneNumber,
 			mEtTravellerEmail, mEtPickUpDestination;
+	
 	private String mTaxiTime, mTaxiDate;
 	private TaxiSelectionAction mTaxiSelected;
 	private String mPickupDestination;
