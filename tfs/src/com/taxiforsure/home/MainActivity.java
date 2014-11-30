@@ -9,11 +9,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.taxiforsure.R;
 import com.taxiforsure.home.FragmentStatus.FragementVisibility;
@@ -85,14 +85,19 @@ public class MainActivity extends ActionBarActivity {
 			Bundle args = new Bundle();
 			args.putInt(HomeFragment.ARG_MENU_INDEX, position);
 			fragment.setArguments(args);
-			if (position == 0) {
-				mCurrentFragment = FragmentName.HOME_FRAGMENT;
-			}
+			mCurrentFragment = FragmentName.HOME_FRAGMENT;
 
 			FragmentManager fragmentManager = getFragmentManager();
 			fragmentManager.beginTransaction()
 					.replace(R.id.home_frame, fragment).commit();
 			break;
+		case 1:
+			Intent intent = new Intent(getApplicationContext(), MyRidesActivity.class);
+			startActivity(intent);
+			
+			break;
+		default:
+			Toast.makeText(getApplicationContext(), "UnderCostruction", Toast.LENGTH_SHORT).show();
 		}
 		// update selected item and title, then close the drawer
 		listView.setItemChecked(position, true);

@@ -104,7 +104,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener,
 		View rootView = inflater.inflate(R.layout.fragment_home, container,
 				false);
 		initialize(rootView);
-		getActivity().setTitle("");
+		getActivity().setTitle("TaxiForSure");
 		return rootView;
 	}
 

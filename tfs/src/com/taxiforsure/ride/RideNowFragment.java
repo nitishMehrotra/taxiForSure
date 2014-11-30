@@ -108,7 +108,7 @@ public class RideNowFragment extends Fragment implements View.OnClickListener {
 				getActivity().finish();
 
 			}
-		}, 1000 * 2);
+		}, 1000 * 5);
 		return rootView;
 	}
 
