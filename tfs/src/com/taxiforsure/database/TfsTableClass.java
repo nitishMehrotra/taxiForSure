@@ -9,7 +9,7 @@ public class TfsTableClass extends Activity {
 	/** < School Table */
 	private static String USER = "user";
 	public static final String CREATE_TABLE = "create table " + USER + "("
-			+ "userId" + " text primary key AUTOINCREEMENT, " + "pickup"
+			+ "userId" + " integer primary key AUTOINCREMENT, " + "pickup"
 			+ " text not null, date text not null, time text not null" + ");";
 
 	public static void onCreate(SQLiteDatabase database, Context context) {

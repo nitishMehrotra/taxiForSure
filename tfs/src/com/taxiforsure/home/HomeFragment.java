@@ -27,6 +27,7 @@ import org.json.JSONObject;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.location.Address;
 import android.location.Location;
 import android.os.AsyncTask;
@@ -34,6 +35,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -63,6 +65,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.taxiforsure.database.TfsDatabaseHelper;
 import com.taxiforsure.home.FragmentStatus.FragementVisibility;
 import com.taxiforsure.home.UserAction.TaxiRideTimeSelectionAction;
 import com.taxiforsure.home.UserAction.TaxiSelectionAction;
@@ -83,6 +86,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener,
 	private GoogleMap map;
 	private LatLng myLocation;
 	Boolean firstTime = true;
+
+	private SQLiteDatabase m_database;
+	private TfsDatabaseHelper m_databaseHelper;
 
 	TouchableMapFragment touchableMapFragment;
 
@@ -105,6 +111,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener,
 				false);
 		initialize(rootView);
 		getActivity().setTitle("TaxiForSure");
+
+		/** Initialise database variables */
+		m_databaseHelper = TfsDatabaseHelper.getHelper(getActivity()
+				.getApplicationContext());
+		m_database = m_databaseHelper.getWritableDatabase();
 		return rootView;
 	}
 
@@ -386,6 +397,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener,
 				intent.putExtras(bundle);
 				toggleVisibility();
 				startActivity(intent);
+
+				Time today = new Time(Time.getCurrentTimezone());
+				today.setToNow();
+
+				String date = today.monthDay + ":" + today.month + ":"
+						+ today.year;
+				String time = today.format("%k:%M:%S");
+
+				/* Save data in database */
+				String sql = "Insert into user (pickup, date,time) VALUES('"
+						+ auto_places.getText().toString() + "', '" + date
+						+ "', '" + time + "');";
+				m_database.execSQL(sql);
 			} else {
 				Toast.makeText(getActivity(), "Please Enter Pickup Loaction",
 						Toast.LENGTH_SHORT).show();

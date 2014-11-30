@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -35,6 +36,7 @@ import android.widget.Toast;
 import com.example.taxiforsure.CustomAutoCompleteTextView;
 import com.example.taxiforsure.PlaceJsonParser;
 import com.example.taxiforsure.R;
+import com.taxiforsure.database.TfsDatabaseHelper;
 import com.taxiforsure.home.UserAction.TaxiSelectionAction;
 import com.taxiforsure.util.DateDialogFragment;
 import com.taxiforsure.util.DateDialogFragmentListener;
@@ -59,6 +61,9 @@ public class RideLaterFragment extends Fragment implements View.OnClickListener 
 	PlacesTask placesTask;
 
 	ParserTask parserTask;
+
+	private SQLiteDatabase m_database;
+	private TfsDatabaseHelper m_databaseHelper;
 
 	public RideLaterFragment(int layout, TaxiSelectionAction taxiSelected,
 			String pickupDestination) {
@@ -91,6 +96,11 @@ public class RideLaterFragment extends Fragment implements View.OnClickListener 
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(mLayout, container, false);
 		initialize(rootView);
+		/** Initialise database variables */
+		m_databaseHelper = TfsDatabaseHelper.getHelper(getActivity()
+				.getApplicationContext());
+		m_database = m_databaseHelper.getWritableDatabase();
+
 		return rootView;
 	}
 
@@ -202,6 +212,15 @@ public class RideLaterFragment extends Fragment implements View.OnClickListener 
 								"Your Trip has been confirmed",
 								Toast.LENGTH_LONG).show();
 						getActivity().finish();
+						/* Save to the database */
+
+						/* Save data in database */
+						String sql = "Insert into user (pickup, date,time) VALUES('"
+								+ mEtPickUpDestination
+								+ "', '"
+								+ mTaxiDate
+								+ "', '" + mTaxiTime + "');";
+						m_database.execSQL(sql);
 					} else {
 						Toast.makeText(getActivity(),
 								"Enter Traveller's EmailID", Toast.LENGTH_SHORT)
