@@ -80,24 +80,28 @@ public class MainActivity extends ActionBarActivity {
 		// update the main content by replacing fragments
 		switch (position) {
 		case 0:
-			HomeFragment fragment = new HomeFragment();
-			mFragementVisibility = fragment;
-			Bundle args = new Bundle();
-			args.putInt(HomeFragment.ARG_MENU_INDEX, position);
-			fragment.setArguments(args);
-			mCurrentFragment = FragmentName.HOME_FRAGMENT;
+			if (mCurrentFragment != FragmentName.HOME_FRAGMENT) {
+				HomeFragment fragment = new HomeFragment();
+				mFragementVisibility = fragment;
+				Bundle args = new Bundle();
+				args.putInt(HomeFragment.ARG_MENU_INDEX, position);
+				fragment.setArguments(args);
+				mCurrentFragment = FragmentName.HOME_FRAGMENT;
 
-			FragmentManager fragmentManager = getFragmentManager();
-			fragmentManager.beginTransaction()
-					.replace(R.id.home_frame, fragment).commit();
+				FragmentManager fragmentManager = getFragmentManager();
+				fragmentManager.beginTransaction()
+						.replace(R.id.home_frame, fragment).commit();
+			}
 			break;
 		case 1:
-			Intent intent = new Intent(getApplicationContext(), MyRidesActivity.class);
+			Intent intent = new Intent(getApplicationContext(),
+					MyRidesActivity.class);
 			startActivity(intent);
-			
+
 			break;
 		default:
-			Toast.makeText(getApplicationContext(), "UnderCostruction", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "UnderCostruction",
+					Toast.LENGTH_SHORT).show();
 		}
 		// update selected item and title, then close the drawer
 		listView.setItemChecked(position, true);
